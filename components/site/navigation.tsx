@@ -2,7 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
+import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/global/mode-toogle"
+import { ArrowRight } from "lucide-react"
 
 export const Navigation = () => {
   return (
@@ -27,6 +29,11 @@ export const Navigation = () => {
           </Link>
         </SignedOut>
         <SignedIn>
+          <Button variant="ghost" asChild>
+            <Link href="/agency">
+              Dashboard <ArrowRight className="ml-1 size-4" />
+            </Link>
+          </Button>
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
         <ModeToggle />
