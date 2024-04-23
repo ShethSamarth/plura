@@ -50,13 +50,10 @@ const AgencyPage = async ({
   const authUser = await currentUser()
 
   return (
-    <div className="mt-4 flex items-center justify-center">
-      <div className="max-w-4xl rounded-xl border p-4">
-        <h1 className="text-4xl">Create An Agency</h1>
-        <AgencyDetails
-          data={{ companyEmail: authUser?.emailAddresses[0].emailAddress }}
-        />
-      </div>
+    <div className="mx-5 max-w-4xl py-10 lg:mx-auto">
+      <AgencyDetails
+        data={{ companyEmail: authUser?.emailAddresses[0].emailAddress }}
+      />
     </div>
   )
 }

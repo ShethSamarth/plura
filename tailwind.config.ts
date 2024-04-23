@@ -4,7 +4,11 @@ import type { Config } from "tailwindcss"
 
 const config = withUt({
   darkMode: ["class"],
-  content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}"],
+  content: [
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
     container: {
       center: true,

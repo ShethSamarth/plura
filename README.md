@@ -1,1 +1,2 @@
-change image on /site when light mode
+change image on "/site" route when light mode
+3:07:30
