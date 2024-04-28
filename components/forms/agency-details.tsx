@@ -56,14 +56,14 @@ type AgencyDetailsProps = {
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Agency name must be atleast 2 chars." }),
-  companyEmail: z.string().min(1),
-  companyPhone: z.string().min(1, { message: "Phone number cannot be empty." }),
+  companyEmail: z.string().email(),
+  companyPhone: z.string().min(1, { message: "Required" }),
   whiteLabel: z.boolean(),
-  address: z.string().min(1, { message: "Address cannot be empty." }),
-  city: z.string().min(1, { message: "City cannot be empty." }),
-  zipCode: z.string().min(1, { message: "Zip Code cannot be empty." }),
-  state: z.string().min(1, { message: "State cannot be empty." }),
-  country: z.string().min(1, { message: "Country cannot be empty." }),
+  address: z.string().min(1, { message: "Required" }),
+  city: z.string().min(1, { message: "Required" }),
+  zipCode: z.string().min(1, { message: "Required" }),
+  state: z.string().min(1, { message: "Required" }),
+  country: z.string().min(1, { message: "Required" }),
   agencyLogo: z.string().min(1, { message: "Select a Logo" })
 })
 
@@ -94,6 +94,7 @@ export const AgencyDetails = ({ data }: AgencyDetailsProps) => {
     if (data) {
       form.reset(data)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {

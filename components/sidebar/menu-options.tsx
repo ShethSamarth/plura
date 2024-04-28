@@ -1,22 +1,16 @@
 "use client"
 
 import {
+  Agency,
   AgencySidebarOption,
   SubAccount,
   SubAccountSidebarOption
 } from "@prisma/client"
+import Link from "next/link"
 import Image from "next/image"
-import { ChevronsUpDown, Compass, Menu, PlusCircleIcon } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
+import { ChevronsUpDown, Compass, Menu, PlusCircleIcon } from "lucide-react"
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger
-} from "@/components/ui/popover"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
 import {
   Sheet,
   SheetClose,
@@ -31,7 +25,19 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/command"
-import Link from "next/link"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from "@/components/ui/popover"
+import { cn } from "@/lib/utils"
+import { icons } from "@/lib/constants"
+import { Button } from "@/components/ui/button"
+import { useModal } from "@/providers/modal-provider"
+import { Separator } from "@/components/ui/separator"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { CustomModal } from "@/components/global/custom-modal"
+import { SubaccountDetails } from "@/components/forms/subaccount-details"
 
 type MenuOptionsProps = {
   defaultOpen?: boolean
@@ -52,6 +58,8 @@ export const MenuOptions = ({
   user,
   defaultOpen
 }: MenuOptionsProps) => {
+  const { setOpen } = useModal()
+
   const [isMounted, setIsMounted] = useState(false)
 
   const openState = useMemo(
@@ -225,7 +233,22 @@ export const MenuOptions = ({
                 {(user?.role === "AGENCY_OWNER" ||
                   user?.role === "AGENCY_ADMIN") && (
                   <SheetClose>
-                    <Button className="flex w-full gap-2">
+                    <Button
+                      className="flex w-full gap-2"
+                      onClick={() => {
+                        setOpen(
+                          <CustomModal
+                            title="Create A Subaccount"
+                            subheading="You can switch between your agency account and the subaccount from the sidebar"
+                          >
+                            <SubaccountDetails
+                              agencyDetails={user?.Agency as Agency}
+                              userName={user?.name}
+                            />
+                          </CustomModal>
+                        )
+                      }}
+                    >
                       <PlusCircleIcon size={15} />
                       Create Sub Account
                     </Button>
@@ -234,6 +257,41 @@ export const MenuOptions = ({
               </Command>
             </PopoverContent>
           </Popover>
+          <p className="mb-2 text-xs text-muted-foreground">MENU LINKS</p>
+          <Separator className="mb-4" />
+          <nav className="relative">
+            <Command className="overflow-visible rounded-lg bg-transparent">
+              <CommandInput placeholder="Search..." />
+              <CommandList className="overflow-visible py-4">
+                <CommandEmpty>No Results Found</CommandEmpty>
+                <CommandGroup className="overflow-visible">
+                  {sidebarOpt.map((sidebarOptions) => {
+                    let val
+                    const result = icons.find(
+                      (icon) => icon.value === sidebarOptions.icon
+                    )
+                    if (result) {
+                      val = <result.path />
+                    }
+                    return (
+                      <CommandItem
+                        key={sidebarOptions.id}
+                        className="w-full p-0 md:w-[320px]"
+                      >
+                        <Link
+                          href={sidebarOptions.link}
+                          className="flex w-[320px] items-center gap-2 rounded-md p-2 transition-all hover:bg-transparent md:w-full"
+                        >
+                          {val}
+                          <span>{sidebarOptions.name}</span>
+                        </Link>
+                      </CommandItem>
+                    )
+                  })}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </nav>
         </div>
       </SheetContent>
     </Sheet>

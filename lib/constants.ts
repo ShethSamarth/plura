@@ -1,4 +1,4 @@
-import * as icons from "@/components/icons"
+import * as icon from "@/components/icons"
 
 export const pricingCards = [
   {
@@ -30,150 +30,150 @@ export const pricingCards = [
   }
 ]
 
-export const iconss = [
+export const icons = [
   {
     value: "chart",
     label: "Bar Chart",
-    path: icons.BarChart
+    path: icon.BarChart
   },
   {
     value: "headphone",
     label: "Headphones",
-    path: icons.Headphone
+    path: icon.Headphone
   },
   {
     value: "send",
     label: "Send",
-    path: icons.Send
+    path: icon.Send
   },
   {
     value: "pipelines",
     label: "Pipelines",
-    path: icons.Pipelines
+    path: icon.Pipelines
   },
   {
     value: "calendar",
     label: "Calendar",
-    path: icons.Calendar
+    path: icon.Calendar
   },
   {
     value: "settings",
     label: "Settings",
-    path: icons.Settings
+    path: icon.Settings
   },
   {
     value: "check",
     label: "Check Circled",
-    path: icons.CheckCircle
+    path: icon.CheckCircle
   },
   {
     value: "chip",
     label: "Chip",
-    path: icons.Chip
+    path: icon.Chip
   },
   {
     value: "compass",
     label: "Compass",
-    path: icons.Compass
+    path: icon.Compass
   },
   {
     value: "database",
     label: "Database",
-    path: icons.Database
+    path: icon.Database
   },
   {
     value: "flag",
     label: "Flag",
-    path: icons.Flag
+    path: icon.Flag
   },
   {
     value: "home",
     label: "Home",
-    path: icons.Home
+    path: icon.Home
   },
   {
     value: "info",
     label: "Info",
-    path: icons.Info
+    path: icon.Info
   },
   {
     value: "link",
     label: "Link",
-    path: icons.LinkIcon
+    path: icon.LinkIcon
   },
   {
     value: "lock",
     label: "Lock",
-    path: icons.Lock
+    path: icon.Lock
   },
   {
     value: "messages",
     label: "Messages",
-    path: icons.Message
+    path: icon.Message
   },
   {
     value: "notification",
     label: "Notification",
-    path: icons.Notification
+    path: icon.Notification
   },
   {
     value: "payment",
     label: "Payment",
-    path: icons.Payment
+    path: icon.Payment
   },
   {
     value: "power",
     label: "Power",
-    path: icons.Power
+    path: icon.Power
   },
   {
     value: "receipt",
     label: "Receipt",
-    path: icons.Receipt
+    path: icon.Receipt
   },
   {
     value: "shield",
     label: "Shield",
-    path: icons.Shield
+    path: icon.Shield
   },
   {
     value: "star",
     label: "Star",
-    path: icons.Star
+    path: icon.Star
   },
   {
     value: "tune",
     label: "Tune",
-    path: icons.Tune
+    path: icon.Tune
   },
   {
     value: "videorecorder",
     label: "Video Recorder",
-    path: icons.Video
+    path: icon.Video
   },
   {
     value: "wallet",
     label: "Wallet",
-    path: icons.Wallet
+    path: icon.Wallet
   },
   {
     value: "warning",
     label: "Warning",
-    path: icons.Warning
+    path: icon.Warning
   },
   {
     value: "person",
     label: "Person",
-    path: icons.Person
+    path: icon.Person
   },
   {
     value: "category",
     label: "Category",
-    path: icons.PluraCategory
+    path: icon.PluraCategory
   },
   {
     value: "clipboardIcon",
     label: "Clipboard Icon",
-    path: icons.ClipboardIcon
+    path: icon.ClipboardIcon
   }
 ]

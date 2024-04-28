@@ -1,10 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/global/mode-toogle"
-import { ArrowRight } from "lucide-react"
 
 export const Navigation = () => {
   return (

@@ -1,9 +1,10 @@
 import "./globals.css"
 import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
-import { Toaster } from "@/components/ui/sonner"
 
+import { Toaster } from "@/components/ui/sonner"
 import { ThemeProvider } from "@/providers/theme-provider"
+import { ModalProvider } from "@/providers/modal-provider"
 
 const font = DM_Sans({ subsets: ["latin"] })
 
@@ -22,8 +23,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           defaultTheme="dark"
           storageKey="plura-theme"
         >
-          {children}
-          <Toaster position="bottom-right" />
+          <ModalProvider>
+            {children}
+            <Toaster position="bottom-right" />
+          </ModalProvider>
         </ThemeProvider>
       </body>
     </html>
