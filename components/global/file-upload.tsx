@@ -48,7 +48,7 @@ export const FileUpload = ({
           type="button"
           className="text-destructive hover:text-destructive"
         >
-          <X className="mr-2 h-4 w-4" />
+          <X className="mr-2 size-4" />
           Remove Logo
         </Button>
       </div>

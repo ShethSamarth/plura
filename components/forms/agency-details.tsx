@@ -57,13 +57,13 @@ type AgencyDetailsProps = {
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Agency name must be atleast 2 chars." }),
   companyEmail: z.string().email(),
-  companyPhone: z.string().min(1, { message: "Required" }),
+  companyPhone: z.string().min(1),
   whiteLabel: z.boolean(),
-  address: z.string().min(1, { message: "Required" }),
-  city: z.string().min(1, { message: "Required" }),
-  zipCode: z.string().min(1, { message: "Required" }),
-  state: z.string().min(1, { message: "Required" }),
-  country: z.string().min(1, { message: "Required" }),
+  address: z.string().min(1),
+  city: z.string().min(1),
+  zipCode: z.string().min(1),
+  state: z.string().min(1),
+  country: z.string().min(1),
   agencyLogo: z.string().min(1, { message: "Select a Logo" })
 })
 
@@ -385,7 +385,7 @@ export const AgencyDetails = ({ data }: AgencyDetailsProps) => {
               )}
               <Button type="submit" disabled={isSubmitting} className="w-full">
                 {isSubmitting ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Loader2 className="size-4 animate-spin" />
                 ) : (
                   "Save Agency Information"
                 )}
@@ -394,10 +394,8 @@ export const AgencyDetails = ({ data }: AgencyDetailsProps) => {
           </Form>
 
           {data?.id && (
-            <div className="mt-4 flex flex-col items-center justify-between gap-x-4 rounded-lg border border-destructive p-4 md:flex-row">
-              <div>
-                <div>Danger Zone</div>
-              </div>
+            <div className="mt-4 flex flex-col items-center justify-between gap-x-4 rounded-lg border border-destructive p-4 xl:flex-row">
+              <p>Danger Zone</p>
               <div className="text-muted-foreground">
                 Deleting your agency cannpt be undone. This will also delete all
                 sub accounts and all data related to your sub accounts. Sub

@@ -33,13 +33,13 @@ interface SubAccountDetailsProps {
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be atleast 2 chars." }),
   companyEmail: z.string().email(),
-  companyPhone: z.string().min(1, { message: "Required" }),
-  address: z.string().min(1, { message: "Required" }),
-  city: z.string().min(1, { message: "Required" }),
+  companyPhone: z.string().min(1),
+  address: z.string().min(1),
+  city: z.string().min(1),
   subAccountLogo: z.string().min(1, { message: "Select a Logo" }),
-  zipCode: z.string().min(1, { message: "Required" }),
-  state: z.string().min(1, { message: "Required" }),
-  country: z.string().min(1, { message: "Required" })
+  zipCode: z.string().min(1),
+  state: z.string().min(1),
+  country: z.string().min(1)
 })
 
 export const SubaccountDetails = ({
@@ -256,7 +256,7 @@ export const SubaccountDetails = ({
         </div>
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="size-4 animate-spin" />
           ) : (
             "Save Account Information"
           )}

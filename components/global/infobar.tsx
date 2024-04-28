@@ -114,7 +114,7 @@ export const Infobar = ({
               </div>
             ))}
             {allNotifications?.length === 0 && (
-              <div className="flex h-full items-center justify-center text-muted-foreground">
+              <div className="flex min-h-52 items-center justify-center text-muted-foreground">
                 You have no notifications
               </div>
             )}
